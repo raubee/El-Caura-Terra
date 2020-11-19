@@ -7,9 +7,9 @@ Smart arduino terrarium controller for dendrobates / Controlleur intelligent pou
 <br>
 Libraries / Bibliotheques : Wire
 
-## Sutff / Materiel
+## Stuff / Materiel
 - Arduino Uno Wifi Rev2 board.
-- 8-relay module 5V / Relais 8 baies 5v..
+- 8-relay module 5V / Relais 8 baies 5v.
 - 1 x DS3231 Real Time Clock RTC I2C / 1 x Module horloge temps reel DS3231.
 
 ### Temperature / Temperature
