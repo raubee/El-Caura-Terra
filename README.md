@@ -4,7 +4,7 @@ Smart arduino terrarium controller for dendrobates / Controlleur intelligent pou
 ## IDE / Environement de developpement
 - Visual Studio
 
-Libraries / Bibliotheques : Wire, [DS18B20](https://github.com/matmunk/DS18B20)
+Libraries / Bibliotheques : Wire, [DS18B20](https://github.com/matmunk/DS18B20), [DS3231](https://github.com/NorthernWidget/DS3231), [DHT sensor library ](https://github.com/adafruit/DHT-sensor-library)
 
 ## Stuff / Materiel
 - Arduino Uno Wifi Rev2 board.
