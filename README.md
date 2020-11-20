@@ -3,7 +3,7 @@ Smart arduino terrarium controller for dendrobates / Controlleur intelligent pou
 
 ## IDE / Environement de developpement
 - Visual Studio
-<br>
+
 Libraries / Bibliotheques : Wire, [DS18B20](https://github.com/matmunk/DS18B20)
 
 ## Stuff / Materiel
