@@ -1,0 +1,6 @@
+{
+    "board": "arduino:megaavr:uno2018",
+    "configuration": "mode=on",
+    "sketch": "src/main.ino",
+    "port": "/dev/ttyACM0"
+}
