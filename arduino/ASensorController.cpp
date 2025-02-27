@@ -1,21 +1,17 @@
-#include "ASensorsController.h"
+#include "ASensorController.h"
 
-ASensorsController::ASensorsController()
-    mTemperatureSensor(SENSOR_PIN_TEMPERATURE),
-    mHumiditySensor(SENSOR_PIN_HUMIDITY, DHTTYPE), mTemperature(0),
-    mHumidity(0), mThresholdTemperature(26.), mThresholdHumidity(80.) {}
 
-void ASensorsController::init() {
+void ASensorController::init() {
   Serial.print(F("[SensorController] Listen temperature on PIN "));
-  Serial.print((mPinTemperature));
+  Serial.print((SENSOR_PIN_TEMPERATURE));
   Serial.println();
 
   Serial.print(F("[SensorController] Listen humidity on PIN "));
-  Serial.print((mPinHumidity));
+  Serial.print((SENSOR_PIN_HUMIDITY));
   Serial.println();
 
-  pinMode(mPinTemperature, INPUT);
-  pinMode(mPinHumidity, INPUT);
+  pinMode(SENSOR_PIN_TEMPERATURE, INPUT);
+  pinMode(SENSOR_PIN_HUMIDITY, INPUT);
 
   while (!Serial) {
     ;  // wait serialization ready
@@ -24,7 +20,7 @@ void ASensorsController::init() {
   mHumiditySensor.begin();
 }
 
-void ASensorsController::update(bool verbose = false) {
+void ASensorController::update(bool verbose = false) {
   updateHumidity();
   updateTemperature();
 
@@ -34,7 +30,7 @@ void ASensorsController::update(bool verbose = false) {
   }
 }
 
-void ASensorsController::updateTemperature() {
+void ASensorController::updateTemperature() {
   while (mTemperatureSensor.selectNext()) {
     mTemperature = mTemperatureSensor.getTempC();
   }
@@ -50,7 +46,7 @@ void ASensorsController::updateTemperature() {
   }
 }
 
-void ASensorsController::updateHumidity() {
+void ASensorController::updateHumidity() {
   // Reading temperature or humidity takes about 250 milliseconds!
   float h = mHumiditySensor.readHumidity();
 
@@ -61,21 +57,13 @@ void ASensorsController::updateHumidity() {
   mHumidity = h;
 }
 
-bool ASensorsController::isUpperTemperatureThreshold() {
-  return mTemperature < mThresholdTemperature;
-}
-
-bool ASensorsController::isUpperHumidityThreshold() {
-  return mHumidity < mThresholdHumidity;
-}
-
-void ASensorsController::printTemperature() {
+void ASensorController::printTemperature() {
   Serial.print(F("Temperature: "));
   Serial.print((mTemperature));
   Serial.println(F(" C"));
 }
 
-void ASensorsController::printHumidity() {
+void ASensorController::printHumidity() {
   Serial.print(F("Humidity: "));
   Serial.print((mHumidity));
   Serial.println(F(" %"));

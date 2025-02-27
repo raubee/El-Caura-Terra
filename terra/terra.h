@@ -1,16 +1,14 @@
 #ifndef TERRA_H
 #define TERRA_H
 
-#include <memory>
-
 #include "SensorController.hpp"
 
 class Terra {
  private:
-  std::shared_ptr<SensorController> m_sensorController;
+  SensorController* m_sensorController;
 
  public:
-  Terra(std::shared_ptr<SensorController> sensorController);
+  Terra(SensorController* sensorController);
   ~Terra();
 
   void setup();
@@ -19,7 +17,7 @@ class Terra {
   int getHumidity() { return m_sensorController->getHumidity(); }
 };
 
-Terra::Terra(std::shared_ptr<SensorController> sensorController)
+Terra::Terra(SensorController* const sensorController)
     : m_sensorController(sensorController) {}
 
 Terra::~Terra() {}

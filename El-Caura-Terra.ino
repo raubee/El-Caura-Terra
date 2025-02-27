@@ -1,12 +1,11 @@
-#include "ASensorsController.h"
-#include "terra.h"
+#include "arduino/ASensorController.h"
+#include "terra/terra.h"
 
 Terra* terra = nullptr;
 
 void setup() {
-  std::shared_ptr<ASensorsController> sensorController =
-      std::make_shared<ASensorsController>();
-  terra = new Terra(sensorController);
+  auto sensorController = new ASensorController();
+  terra = new Terra(nullptr);
   terra->setup();
 }
 

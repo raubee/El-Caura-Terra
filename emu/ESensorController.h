@@ -28,4 +28,4 @@ ESensorController::ESensorController() {}
 
 ESensorController::~ESensorController() {}
 
-#endif
+#endif // ESENSORCONTROLLER_H

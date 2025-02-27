@@ -1,4 +1,3 @@
 {
-    "cmake.sourceDirectory": "/home/ijin/Public/projects/el-caura-terra",
-    "cmake.buildDirectory": "${workspaceFolder}/build"
+    "arduino.useArduinoCli": true
 }
