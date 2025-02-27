@@ -27,7 +27,7 @@ String RTCController::toString()
 void RTCController::printClock()
 {
   Serial.print(F("Date: "));
-  Serial.println(F(toString()));
+  Serial.println((toString()));
 }
 
 void GetDateStuff(byte &Year, byte &Month, byte &Day, byte &DoW,

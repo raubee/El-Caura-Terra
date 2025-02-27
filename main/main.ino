@@ -5,10 +5,9 @@
 #include "CalendarJsonFormatter.hpp"
 #include "RelayController.h"
 #include "WebServer.h"
-#include "html/index.h"
 
 /************** Sensors inputs *******************/
-#define SENSOR_PIN_TEMPERATURE PIN2
+#define SENSOR_PIN_TEMPERATURE PIN3
 #define SENSOR_PIN_HUMIDITY PIN4
 
 static WebServer server;
@@ -35,19 +34,13 @@ static String getFullStringFromJson()
   return result;
 }
 
-static EndpointMapping sIndexPage = {"/", "text/html", getIndexPage};
-static EndpointMapping sFullPage = {"/full", "application/json", getFullStringFromJson};
-static EndpointMapping sSensorPage = {"/sensors", "application/json", jsonSensorsFormatter.getStringFromJson};
-static EndpointMapping sClockPage = {"/clock", "application/json", jsonClockFormatter.getStringFromJson};
-static EndpointMapping sHumidityPage = {"/humidity_calendar", "application/json", jsonHumidityCalendarFormatter.getStringFromJson};
-static EndpointMapping sLightPage = {"/light_calendar", "application/json", jsonLightCalendarFormatter.getStringFromJson};
-
 #define EVERYDAY_DATE(h, m, s) DateTime(2023, 01, 01, h, m, s)
 
 void planLightCalendar()
 {
   DailyEntry entry = {// Light is on each day from 9h to 22h
-                      EVERYDAY_DATE(9, 0, 0),
+                      
+    EVERYDAY_DATE(9, 0, 0),
                       EVERYDAY_DATE(22, 0, 0)};
 
   lightCalendar.planDailyMeeting(entry);
@@ -98,17 +91,15 @@ void setup()
   sensorsController.init();
   relayController.init();
   clockController.init();
-  // rtc->setTime(DateTime(20, 11, 21, 21, 23, 00));
   server.create();
-  server.createRedirectionPage(sIndexPage);
-  server.createRedirectionPage(sSensorPage);
-  server.createRedirectionPage(sClockPage);
-  server.createRedirectionPage(sHumidityPage);
-  server.createRedirectionPage(sLightPage);
-  server.createRedirectionPage(sFullPage);
-
+  
+  // rtc->setTime(DateTime(20, 11, 21, 21, 23, 00));
+  
   planLightCalendar();
   planHumidityCalendar();
+
+  Serial.print(F("Setup completed..."));
+  Serial.println();
 }
 
 void loop()

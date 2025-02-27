@@ -1,3 +1,6 @@
+#ifndef HTML_404
+#define HTML_404
+
 const String cHtml404 =
     "<!DOCTYPE html>\n"
     "<html>\n"
@@ -8,3 +11,5 @@ const String cHtml404 =
     "<pre>404 not found</pre>\n"
     "</body>\n"
     "</html>\n";
+
+#endif // HTML_404

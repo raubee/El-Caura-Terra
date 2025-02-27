@@ -1,5 +1,4 @@
 #include "WebServer.h"
-#include "html/404.h"
 
 static String extractEndpointFromLine(String line)
 {
@@ -21,6 +20,12 @@ static String extractEndpointFromLine(String line)
 
 WebServer::WebServer() : mServer(SERVER_PORT), mRedirectionPages(mEndpointTable)
 {
+    createRedirectionPage(sIndexPage);
+    createRedirectionPage(sFullPage);
+    createRedirectionPage(sSensorPage);
+    createRedirectionPage(sClockPage);
+    createRedirectionPage(sHumidityPage);
+    createRedirectionPage(sLightPage);
 }
 
 void WebServer::create(bool ownAP)
@@ -189,7 +194,7 @@ void WebServer::createRedirectionPage(EndpointMapping page)
     mRedirectionPages.push_back(page);
 }
 
-bool WebServer::trySendResponsePage(const WiFiClient& client, String endpoint)
+bool WebServer::trySendResponsePage(const WiFiClient &client, String endpoint)
 {
     for (int i = 0; i < mRedirectionPages.size(); ++i)
     {
@@ -203,41 +208,41 @@ bool WebServer::trySendResponsePage(const WiFiClient& client, String endpoint)
     return false;
 }
 
-void WebServer::sendPage(const WiFiClient& client, EndpointMapping page)
+void WebServer::sendPage(const WiFiClient &client, EndpointMapping page)
 {
     setSuccessHeader(client);
     setMimetype(client, page.mimetype);
 
-    WiFiClient& c = const_cast<WiFiClient&>(client);
+    WiFiClient &c = const_cast<WiFiClient &>(client);
     c.println();
     c.println(page.GetPage());
 }
 
-void WebServer::sendNotFoundPage(const WiFiClient& client)
+void WebServer::sendNotFoundPage(const WiFiClient &client)
 {
     setNotFoundHeader(client);
     setMimetype(client, "text/html");
-    
-    WiFiClient& c = const_cast<WiFiClient&>(client);
+
+    WiFiClient &c = const_cast<WiFiClient &>(client);
     c.println();
     c.println(cHtml404);
 }
 
-void WebServer::setSuccessHeader(const WiFiClient& client)
+void WebServer::setSuccessHeader(const WiFiClient &client)
 {
-    WiFiClient& c = const_cast<WiFiClient&>(client);
+    WiFiClient &c = const_cast<WiFiClient &>(client);
     c.println("HTTP/1.1 200 OK");
 }
 
-void WebServer::setNotFoundHeader(const WiFiClient& client)
+void WebServer::setNotFoundHeader(const WiFiClient &client)
 {
-    WiFiClient& c = const_cast<WiFiClient&>(client);
+    WiFiClient &c = const_cast<WiFiClient &>(client);
     c.println("HTTP/1.1 404 Not Found");
 }
 
-void WebServer::setMimetype(const WiFiClient& client, String mimetype)
+void WebServer::setMimetype(const WiFiClient &client, String mimetype)
 {
-    WiFiClient& c = const_cast<WiFiClient&>(client);
+    WiFiClient &c = const_cast<WiFiClient &>(client);
     c.println("Content-type:" + mimetype);
 }
 

@@ -14,11 +14,11 @@ SensorsController::SensorsController(int pinTemp, int pinHumidity) : mPinTempera
 void SensorsController::init()
 {
     Serial.print(F("[SensorController] Listen temperature on PIN "));
-    Serial.print(F(mPinTemperature));
+    Serial.print((mPinTemperature));
     Serial.println();
 
     Serial.print(F("[SensorController] Listen humidity on PIN "));
-    Serial.print(F(mPinHumidity));
+    Serial.print((mPinHumidity));
     Serial.println();
 
     pinMode(mPinTemperature, INPUT);
@@ -90,13 +90,13 @@ bool SensorsController::isUpperHumidityThreshold()
 void SensorsController::printTemperature()
 {
     Serial.print(F("Temperature: "));
-    Serial.print(F(mTemperature));
+    Serial.print((mTemperature));
     Serial.println(F(" C"));
 }
 
 void SensorsController::printHumidity()
 {
     Serial.print(F("Humidity: "));
-    Serial.print(F(mHumidity));
+    Serial.print((mHumidity));
     Serial.println(F(" %"));
 }

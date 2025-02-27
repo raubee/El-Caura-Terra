@@ -1,3 +1,6 @@
+#ifndef HTML_INDEX
+#define HTML_INDEX
+
 const String cHtmlIndex =
     "<!DOCTYPE html>\n"
     "<html>\n"
@@ -9,4 +12,6 @@ const String cHtmlIndex =
     "</body>\n"
     "</html>\n";
 
-static String getIndexPage() { return cHtmlIndex; }
+static EndpointMapping sIndexPage = {"/", "text/html"};
+
+#endif // HTML_INDEX

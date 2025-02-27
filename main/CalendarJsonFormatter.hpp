@@ -30,8 +30,8 @@ public:
         for (int i = 0; i < meetings.size(); i++)
         {
             JsonObject object = JsonObject();
-            object.getOrAddMember("startAt").set(formatMeeting(meetings[i].startDate));
-            object.getOrAddMember("endAt").set(formatMeeting(meetings[i].endDate));
+            object["startAt"].set(formatMeeting(meetings[i].startDate));
+            object["endAt"].set(formatMeeting(meetings[i].endDate));
             json.add(object);
         }
     }
@@ -47,8 +47,8 @@ public:
         for (int i = 0; i < meetings.size(); i++)
         {
             JsonObject object = JsonObject();
-            object.getOrAddMember("startAt").set(formatDailyMeeting(meetings[i].startHour));
-            object.getOrAddMember("endAt").set(formatDailyMeeting(meetings[i].endHour));
+            object["startAt"].set(formatDailyMeeting(meetings[i].startHour));
+            object["endAt"].set(formatDailyMeeting(meetings[i].endHour));
             json.add(object);
         }
     }
