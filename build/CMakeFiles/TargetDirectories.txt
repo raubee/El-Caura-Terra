@@ -1,0 +1,3 @@
+/home/ijin/Public/projects/el-caura-terra/build/CMakeFiles/TerraEmu.dir
+/home/ijin/Public/projects/el-caura-terra/build/CMakeFiles/edit_cache.dir
+/home/ijin/Public/projects/el-caura-terra/build/CMakeFiles/rebuild_cache.dir

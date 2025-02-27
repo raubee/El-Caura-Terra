@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/ijin/Public/projects/el-caura-terra/build",
+  "command": "/usr/bin/clang++ -I/home/ijin/Public/projects/el-caura-terra/terra -g -std=gnu++14 -o CMakeFiles/TerraEmu.dir/emu/main.cpp.o -c /home/ijin/Public/projects/el-caura-terra/emu/main.cpp",
+  "file": "/home/ijin/Public/projects/el-caura-terra/emu/main.cpp",
+  "output": "CMakeFiles/TerraEmu.dir/emu/main.cpp.o"
+}
+]
