@@ -2,8 +2,7 @@
 #include <iostream>
 
 #include "ESensorController.h"
-#include "SensorController.hpp"
-#include "terra.h"
+#include "../terra/terra.h"
 
 int main(int argc, char **argv) {
   auto sensorController = new ESensorController();

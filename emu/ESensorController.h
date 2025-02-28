@@ -1,7 +1,7 @@
 #ifndef ESENSORCONTROLLER_H
 #define ESENSORCONTROLLER_H
 
-#include "SensorController.hpp"
+#include "../terra/SensorController.hpp"
 
 class ESensorController : public SensorController {
  public:
