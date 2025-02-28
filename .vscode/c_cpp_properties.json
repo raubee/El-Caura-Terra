@@ -1,13 +1,4 @@
 {
-    "env": {
-        "sharedIncludePath": [
-            "${workspaceFolder}/**",
-            "${workspaceFolder}/terra/**"
-        ],
-        "sharedDefines": [
-            "DEBUG"
-        ]
-    },
     "configurations": [
         {
             "name": "Emulator",
