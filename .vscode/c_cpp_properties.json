@@ -6,8 +6,7 @@
         ],
         "sharedDefines": [
             "DEBUG"
-        ],
-        "home" : "/home/raubee"
+        ]
     },
     "configurations": [
         {
