@@ -4,6 +4,5 @@
     "files.associations": {
         "*.ejs": "html",
         "iostream": "cpp"
-    },
-    "C_Cpp.default.compilerPath": "/usr/bin/clang++"
+    }
 }
