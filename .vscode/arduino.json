@@ -1,6 +1,6 @@
 {
     "board": "arduino:megaavr:uno2018",
-    "sketch": "El-Caura-Terra.ino",
+    "sketch": "el-caura-terra.ino",
     "port": "/dev/ttyACM0",
     "programmer": "medbg",
     "configuration": "mode=off"
