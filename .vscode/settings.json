@@ -1,4 +1,9 @@
 {
     "arduino.useArduinoCli": true,
-    "arduino.disableIntelliSenseAutoGen": true
+    "arduino.disableIntelliSenseAutoGen": true,
+    "files.associations": {
+        "*.ejs": "html",
+        "iostream": "cpp"
+    },
+    "C_Cpp.default.compilerPath": "/usr/bin/clang++"
 }
